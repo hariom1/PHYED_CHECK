@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-w26avkm1ud&y&bv&pw^1v$g4ijjlk@$mle4@xo9=x%v3wqtgkd
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = False
-DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'True'
+DEBUG = 'True'
 ALLOWED_HOSTS = ['.vercel.app']
 
 
@@ -163,13 +163,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
 # STATICFILES_DIRS = [
 #     BASE_DIR / 'mysite/static',
 #     os.path.join(BASE_DIR,'Phyed-course-master/build/static'),
 #     os.path.join(BASE_DIR,'PHYED_JOBS-master/build/static')
 # ]
 
-STATIC_ROOT=BASE_DIR/'staticfiles'
+STATIC_ROOT = BASE_DIR/"staticfiles_build" /"static"
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
