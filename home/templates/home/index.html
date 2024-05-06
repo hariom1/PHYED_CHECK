@@ -1,0 +1,1609 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+{% load static %}
+  <title>Phyed</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static 'assets/img/phyed2.png' %}" rel="icon">
+  <link href="{% static 'assets/img/phyed2.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+   <link rel="stylesheet" href="{% static 'assets/scss/cards.css' %}">
+  <!-- Main CSS File -->
+  <link href="{% static 'assets/css/cards.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+  
+    <!-- Main CSS File -->
+    <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+  
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="{% static 'css/swiper-bundle.min.css' %}">
+  
+  <!-- CSS -->
+  <link href="{% static 'jobs/css/style.css' %}" rel="stylesheet">
+  <link href="{% static 'jobs/css/style_jobs.css' %}" rel="stylesheet">
+      <!-- Icon Font Stylesheet -->
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <div class="logo">
+        <h1><a href="index.html"></a><img src="{% static 'assets/img/phyed.png' %}" alt="phyed" width="130" height="35"></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+          <li><a class="nav-link scrollto" href="#about">About</a></li>
+          <li><a class="nav-link scrollto" href="#services">Services</a></li>
+          <!-- <li><a class="nav-link scrollto " href="#portfolio">Portfolio</a></li>
+          <li><a class="nav-link scrollto" href="#team">Team</a></li>
+          <li><a class="nav-link scrollto" href="#pricing">Pricing</a></li> -->
+          <li class="dropdown"><a href="#features"><span> Courses</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              {% comment %} <li class="dropdown"><a href="#"><span>UPSC CSE</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="#">GS1</a></li>
+                  <li><a href="#">GS2</a></li>
+                  <li><a href="#">GS3</a></li>
+                  <li><a href="#">GS4</a></li>
+                  <li><a href="#">OPTIONAL</a></li>
+                </ul>
+              </li> {% endcomment %}
+              <li><a href="/learn/">NumPy</a></li>
+              <li><a href="/learn/">Python</a></li>
+              <li><a href="/learn/">C++</a></li>
+              <li><a href="/learn/">Algorithm</a></li>
+              <li><a href="/learn/">IOT</a></li>
+            </ul>
+          </li>
+          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+          {% if request.user.is_authenticated %}
+          <li><a class="getstarted scrollto" style="background-color: white; color: #2972df;" href="/home/">Dashboard</a></li>
+          <li><a class="getstarted scrollto" style="background-color: white; color: #2972df;" href="/accounts/logout/">Logout</a></li>
+          
+          {% else %}
+          <li><a class="getstarted scrollto" style="background-color: white; color: #2972df;" href="/accounts/login/">Login</a></li>
+          {% endif %}
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <!-- <section class="ccd">
+    <div class="row">
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="card">
+          <div class="cover item-a">
+            <h1>Little<br>Bonsai</h1>
+            <span class="price">$79</span>
+            <div class="card-back">
+              <a href="#">Add to cart</a>
+              <a href="#">View detail</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="card">
+          <div class="cover item-b">
+            <h1>Tropical<br>Leaf</h1>
+            <span class="price">$35</span>
+            <div class="card-back">
+              <a href="#">Add to cart</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <div class="card">
+          <div class="cover item-c">
+            <h1>Marijuana<br>Chill</h1>
+            <span class="price">$155</span>
+            <div class="card-back">
+              <a href="#">Add to cart</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+ 
+
+
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero" style="background-color: transparent;"  class="d-flex align-items-center">
+
+    <div class="container bgim" >
+      <div class="row">
+        <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+          <h1 data-aos="fade-up">Bridging gaps between learners and success</h1>
+          <h2 style="color:#60A5FA" data-aos="fade-up" data-aos-delay="400">Choose Phyed today and redefine your college experience...</h2>
+          <div data-aos="fade-up" data-aos-delay="800">
+           <a href="/accounts/login/" class="btn-get-started scrollto">Get Started</a>
+
+            {% comment %} <div class="col-lg-3 col-md-4 mt-4">
+              <div class="icon-box">
+                <i class="bi bi-virus" style="color: #ff0000;"></i>
+                <h3><a href="./index-copy.html">Biotechnology</a></h3>
+              </div>
+            </div> {% endcomment %}
+            {% comment %} <div class="btn-group">
+              <button><i class="bi bi-book-half" style="color: black; margin-right : 10px;"></i><a href="#about">Start Learning</a></button>
+              <button><i class="bi bi-search-heart-fill" style="color: black; margin-right : 6px;"></i><a href="/accounts/login/">Find Jobs & Internships</a></button>
+              <button><i class="bi bi-people-fill" style="color: black; margin-right : 10px;"></i><a href="/accounts/login/">Students Community</a></button>
+            </div> {% endcomment %}
+            
+          </div>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="fade-left" data-aos-delay="200">
+          <img src='{% static 'assets/img/vec2.png' %}' style="width: 140%; margin-left: -100px;"  alt="">
+          
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+
+  <main id="main">
+
+    <!-- ======= Clients Section ======= -->
+    <!-- <section id="clients" class="clients clients">
+      <div class="container">
+
+        <div class="row">
+
+          <div class="col-lg-2 col-md-4 col-6">
+            <img src="assets/img/clients/client-1.png" class="img-fluid" alt="" data-aos="zoom-in">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6">
+            <img src="assets/img/clients/client-2.png" class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="100">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6">
+            <img src="assets/img/clients/client-3.png" class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="200">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6">
+            <img src="assets/img/clients/client-4.png" class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="300">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6">
+            <img src="assets/img/clients/client-5.png" class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="400">
+          </div>
+
+          <div class="col-lg-2 col-md-4 col-6">
+            <img src="assets/img/clients/client-6.png" class="img-fluid" alt="" data-aos="zoom-in" data-aos-delay="500">
+          </div>
+
+        </div>
+
+      </div>
+    </section> -->
+
+    <!-- ======= Services Section ======= -->
+    <section id="services" class="services" style="background-color: #e1f0fa;" >
+
+      <style>
+.bubbly-button {
+
+  font-family: "Helvetica", "Arial", sans-serif;
+  display: inline-block;
+  font-size: 1em;
+  padding: 0.7em 1.4em;
+  /* margin-top: 100px; */
+  /* margin-bottom: 60px; */
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #60A5FA;
+  color: #fff;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  transition: transform ease-in 0.1s, box-shadow ease-in 0.25s;
+  box-shadow: 0 2px 25px #60a5fa7b;
+}
+.bubbly-button:focus {
+  outline: 0;
+}
+.bubbly-button:before, .bubbly-button:after {
+  position: absolute;
+  content: "";
+  display: block;
+  width: 140%;
+  height: 100%;
+  left: -20%;
+  z-index: -1000;
+  transition: all ease-in-out 0.5s;
+  background-repeat: no-repeat;
+}
+.bubbly-button:before {
+  display: none;
+  top: -75%;
+  background-image: radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, transparent 20%, #ff0081 20%, transparent 30%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, transparent 10%, #ff0081 15%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%);
+  background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%, 10% 10%, 18% 18%;
+}
+.bubbly-button:after {
+  display: none;
+  bottom: -75%;
+  background-image: radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, transparent 10%, #ff0081 15%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%), radial-gradient(circle, #ff0081 20%, transparent 20%);
+  background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 10% 10%, 20% 20%;
+}
+.bubbly-button:active {
+  transform: scale(0.9);
+  background-color: #ffffff;
+  color: #60A5FA;
+  box-shadow: 0 2px 25px rgba(255, 0, 130, 0.2);
+}
+.bubbly-button.animate:before {
+  display: block;
+  animation: topBubbles ease-in-out 0.75s forwards;
+}
+.bubbly-button.animate:after {
+  display: block;
+  animation: bottomBubbles ease-in-out 0.75s forwards;
+}
+
+@keyframes topBubbles {
+  0% {
+    background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%, 40% 90%, 55% 90%, 70% 90%;
+  }
+  50% {
+    background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%, 50% 50%, 65% 20%, 90% 30%;
+  }
+  100% {
+    background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%, 50% 40%, 65% 10%, 90% 20%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  }
+}
+@keyframes bottomBubbles {
+  0% {
+    background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%, 70% -10%, 70% 0%;
+  }
+  50% {
+    background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%, 105% 0%;
+  }
+  100% {
+    background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%, 110% 10%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  }
+}
+      </style>
+
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>Services</h2>
+          <p>Just have a look, what Phyed offers to you...</p>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+              <div class="icon"><i class="bx bxl-dribbble"></i></div>
+              <h4 class="title"><a href="">Intresting Learning</a></h4>
+              <p class="description">Discover courses that boost your knowledge and skills, empowering academic excellence and preparing you for future career success.</p>
+              <br><br>
+              <div style="  display: flex; justify-content: center;"> <button onclick="window.location.href='/learn/'" class="bubbly-button">Explore</button></div>  
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
+              <div class="icon"><i class="bx bx-file"></i></div>
+              <h4 class="title"><a href="">Personalized Resume</a></h4>
+              <p class="description">
+                Create a standout resume that captivates employers, opening doors to exciting opportunities. Our experts ensure your unique talents shine.</p>
+                <br>
+                
+                {% if request.user.is_authenticated %}
+                <div style="  display: flex; justify-content: center;"> <button onclick="window.location.href='/home/resume/'" class="bubbly-button">Explore</button>
+                </div>
+                {% else %}
+                <div style="  display: flex; justify-content: center;"> <button onclick="window.location.href='/accounts/login/'" class="bubbly-button">Explore</button>
+                </div>             
+                {% endif %}
+              </div>
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
+              <div class="icon"><i class="bx bx-tachometer"></i></div>
+              <h4 class="title"><a href="">Jobs & Internship</a></h4>
+              <p class="description">
+                Supercharge your career with exclusive student job and internship opportunities. Transform your future with us.</p>
+                <br><br>
+                
+                {% if request.user.is_authenticated %}
+                <div style="  display: flex; justify-content: center;"> <button onclick="window.location.href='/jobs/'" class="bubbly-button">Explore</button>
+                </div>
+                {% else %}
+                <div style="  display: flex; justify-content: center;"> <button onclick="window.location.href='/accounts/login/'" class="bubbly-button">Explore</button>
+                </div>             
+                {% endif %}
+              </div>  
+          </div>
+
+          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+            <div class="icon-box" data-aos="fade-up" data-aos-delay="400">
+              <div class="icon"><i class="bx bx-world"></i></div>
+              <h4 class="title"><a href="">Worthy Connections</a></h4>
+              <p class="description">Connect, collaborate, and grow with ambitious peers, fostering lifelong friendships, collaborative projects, and mind-expanding discussions.</p>
+              <br>
+              
+              {% if request.user.is_authenticated %}
+                <div style="  display: flex; justify-content: center;"> <button onclick="window.location.href='/home/'" class="bubbly-button">Explore</button>
+                </div>
+                {% else %}
+                <div style="  display: flex; justify-content: center;"> <button onclick="window.location.href='/accounts/login/'" class="bubbly-button">Explore</button>
+                </div>             
+                {% endif %}
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+<script>
+  var animateButton = function(e) {
+
+e.preventDefault;
+//reset animation
+e.target.classList.remove('animate');
+
+e.target.classList.add('animate');
+setTimeout(function(){
+  e.target.classList.remove('animate');
+},700);
+};
+
+var bubblyButtons = document.getElementsByClassName("bubbly-button");
+
+for (var i = 0; i < bubblyButtons.length; i++) {
+bubblyButtons[i].addEventListener('click', animateButton, false);
+}
+</script>
+
+    </section><!-- End Services Section -->
+
+    {% comment %} <section id="features" class="features">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>Courses</h2>
+          <p>"PhyEd provides concise, animated content relevant to today's world, making learning engaging and accessible for all."</p>
+        </div>
+
+        <div class="row" data-aos="fade-up" data-aos-delay="300">
+          <!-- <div class="col-lg-3 col-md-4">
+            <div class="icon-box">
+              <i class="ri-store-line" style="color: #ffbb2c;"></i>
+              <h3><a href="">Lorem Ipsum</a></h3>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
+            <div class="icon-box">
+              <i class="ri-bar-chart-box-line" style="color: #5578ff;"></i>
+              <h3><a href="">Dolor Sitema</a></h3>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mt-4 mt-md-0">
+            <div class="icon-box">
+              <i class="ri-calendar-todo-line" style="color: #e80368;"></i>
+              <h3><a href="">Sed perspiciatis</a></h3>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mt-4 mt-lg-0">
+            <div class="icon-box">
+              <i class="ri-paint-brush-line" style="color: #e361ff;"></i>
+              <h3><a href="">Magni Dolores</a></h3>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mt-4">
+            <div class="icon-box">
+              <i class="ri-database-2-line" style="color: #47aeff;"></i>
+              <h3><a href="">Nemo Enim</a></h3>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mt-4">
+            <div class="icon-box">
+              <i class="ri-gradienter-line" style="color: #ffa76e;"></i>
+              <h3><a href="">Eiusmod Tempor</a></h3>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mt-4">
+            <div class="icon-box">
+              <i class="ri-file-list-3-line" style="color: #11dbcf;"></i>
+              <h3><a href="">Midela Teren</a></h3>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mt-4">
+            <div class="icon-box">
+              <i class="ri-price-tag-2-line" style="color: #4233ff;"></i>
+              <h3><a href="">Pira Neve</a></h3>
+            </div>
+          </div>-->
+          <div class="col-lg-3 col-md-4 mt-4">
+            <div class="icon-box">
+              <i class="bi bi-airplane-engines" style="color: #55a5d1;"></i>
+              <h3><a href="./semmo_landing.html">Aerospace Engineering</a></h3>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mt-4">
+            <div class="icon-box">
+              <i class="bi bi-tree" style="color: #55b209;"></i>
+              <h3><a href="./index-copy.html">Agricultural & Food Engineering</a></h3>
+            </div>
+          </div> 
+          <div class="col-lg-3 col-md-4 mt-4">
+            <div class="icon-box">
+              <i class="bi bi-virus" style="color: #ff0000;"></i>
+              <h3><a href="./index-copy.html">Biotechnology</a></h3>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mt-4">
+            <div class="icon-box">
+              <i class="bi bi-capsule-pill" style="color: #ff1d52;"></i>
+              <h3><a href="./index-copy.html">Chemical Engineering</a></h3>
+            </div>
+          </div>          <div class="col-lg-3 col-md-4 mt-4">
+            <div class="icon-box">
+              <i class="bi bi-binoculars" style="color: #04dbeb;"></i>
+              <h3><a href="./index-copy.html">Chemistry</a></h3>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mt-4">
+            <div class="icon-box">
+              <i class="bi bi-bricks" style="color: #280518;"></i>
+              <h3><a href="./index-copy.html">Civil Engineering</a></h3>
+            </div>
+          </div> 
+          <div class="col-lg-3 col-md-4 mt-4">
+            <div class="icon-box">
+              <i class="bi bi-cpu" style="color: #bb28ff;"></i>
+              <h3><a href="./cse.html">Comuter Science & Engineering</a></h3>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mt-4">
+            <div class="icon-box">
+              <i class="bi bi-cash-coin" style="color: #29a1cc;"></i>
+              <h3><a href="./index-copy.html">Economics</a></h3>
+            </div>
+          </div> <div class="col-lg-3 col-md-4 mt-4">
+            <div class="icon-box">
+              <i class="ri-fingerprint-line" style="color: #29cc61;"></i>
+              <h3><a href="./index-copy.html">Electrical Engineering</a></h3>
+            </div>
+          </div> 
+                   <div class="col-lg-3 col-md-4 mt-4">
+            <div class="icon-box">
+              <i class="bi bi-ev-station" style="color: #e32b72;"></i>
+              <h3><a href="./index-copy.html">Electronics & Communication Engineering</a></h3>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mt-4">
+            <div class="icon-box">
+              <i class="bi bi-globe-central-south-asia" style="color: #0bbf29;"></i>
+              <h3><a href="./index-copy.html">Geology & Geophysics</a></h3>
+            </div>
+          </div> 
+          <div class="col-lg-3 col-md-4 mt-4">
+            <div class="icon-box">
+              <i class="bi bi-buildings-fill" style="color: #000000;"></i>
+              <h3><a href="./index-copy.html">Industrial & Systems Engineering</a></h3>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mt-4">
+            <div class="icon-box">
+              <i class="bi bi-calculator" style="color: #e39d2c;"></i>
+              <h3><a href="./index-copy.html">Mathematics & Computing</a></h3>
+            </div>
+          </div>          <div class="col-lg-3 col-md-4 mt-4">
+            <div class="icon-box">
+              <i class="bi bi-tools" style="color: #e9354a;"></i>
+              <h3><a href="./index-copy.html">Mechanical Engineering</a></h3>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mt-4">
+            <div class="icon-box">
+              <i class="bi bi-gem" style="color: #01ffd5;"></i>
+              <h3><a href="./index-copy.html">Metallurgy & Materials Engineering</a></h3>
+            </div>
+          </div> 
+          <div class="col-lg-3 col-md-4 mt-4">
+            <div class="icon-box">
+              <i class="bi bi-minecart-loaded" style="color: #000000;"></i>
+              <h3><a href="./index-copy.html">Mining Engineering</a></h3>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mt-4">
+            <div class="icon-box">
+              <i class="bi bi-water" style="color: #2972df;"></i>
+              <h3><a href="./index-copy.html">Ocean Engineering</a></h3>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-4 mt-4">
+            <div class="icon-box">
+              <i class="bi bi-hourglass-split" style="color: #787a7b;"></i>
+              <h3><a href="./index-copy.html">Physics</a></h3>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section> {% endcomment %}
+<!-- Jobs Start -->
+{% comment %} <div class="container-xxl py-5">
+              <div class="container">
+                  <h1 class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">Job Listing</h1>
+                  <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.3s">
+                      <ul class="nav nav-pills d-inline-flex justify-content-center border-bottom mb-5">
+                          <li class="nav-item">
+                              <a class="d-flex align-items-center text-start mx-3 ms-0 pb-3 active" data-bs-toggle="pill" href="#tab-1">
+                                  <h6 class="mt-n1 mb-0">Featured</h6>
+                              </a>
+                          </li>
+                          <!-- <li class="nav-item">
+                              <a class="d-flex align-items-center text-start mx-3 pb-3" data-bs-toggle="pill" href="#tab-2">
+                                  <h6 class="mt-n1 mb-0">Full Time</h6>
+                              </a>
+                          </li>
+                          <li class="nav-item">
+                              <a class="d-flex align-items-center text-start mx-3 me-0 pb-3" data-bs-toggle="pill" href="#tab-3">
+                                  <h6 class="mt-n1 mb-0">Part Time</h6>
+                              </a>
+                          </li> -->
+                      </ul>
+                      <div class="tab-content">
+                          <div id="tab-1" class="tab-pane fade show p-0 active">
+                              <div class="job-item p-4 mb-4">
+                                  <div class="row g-4">
+                                      <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                          <img class="flex-shrink-0 img-fluid border rounded" src="{% static 'img/com-logo-1.jpg' %}" alt="" style="width: 80px; height: 80px;">
+                                          <div class="text-start ps-4">
+                                              <h5 class="mb-3">Software Engineer</h5>
+                                              <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
+                                              <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>Full Time</span>
+                                              <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                          </div>
+                                      </div>
+                                      <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                          <div class="d-flex mb-3">
+                                              <a class="btn btn-light btn-square me-3" href=""><i class="bi bi-heart-fill" style="color:red;"></i></a>
+                                              <a class="btn btn-primary" href="">Apply Now</a>
+                                          </div>
+                                          <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="job-item p-4 mb-4">
+                                  <div class="row g-4">
+                                      <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                          <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-2.jpg" alt="" style="width: 80px; height: 80px;">
+                                          <div class="text-start ps-4">
+                                              <h5 class="mb-3">Marketing Manager</h5>
+                                              <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
+                                              <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>Full Time</span>
+                                              <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                          </div>
+                                      </div>
+                                      <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                          <div class="d-flex mb-3">
+                                            <a class="btn btn-light btn-square me-3" href=""><i class="bi bi-heart-fill" style="color:red;"></i></a>                                              <a class="btn btn-primary" href="">Apply Now</a>
+                                          </div>
+                                          <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="job-item p-4 mb-4">
+                                  <div class="row g-4">
+                                      <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                          <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-3.jpg" alt="" style="width: 80px; height: 80px;">
+                                          <div class="text-start ps-4">
+                                              <h5 class="mb-3">Product Designer</h5>
+                                              <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
+                                              <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>Full Time</span>
+                                              <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                          </div>
+                                      </div>
+                                      <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                          <div class="d-flex mb-3">
+  <a class="btn btn-light btn-square me-3" href=""><i class="bi bi-heart-fill" style="color:red;"></i></a>                                              <a class="btn btn-primary" href="">Apply Now</a>
+                                          </div>
+                                          <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="job-item p-4 mb-4">
+                                  <div class="row g-4">
+                                      <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                          <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-4.jpg" alt="" style="width: 80px; height: 80px;">
+                                          <div class="text-start ps-4">
+                                              <h5 class="mb-3">Creative Director</h5>
+                                              <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
+                                              <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>Full Time</span>
+                                              <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                          </div>
+                                      </div>
+                                      <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                          <div class="d-flex mb-3">
+        <a class="btn btn-light btn-square me-3" href=""><i class="bi bi-heart-fill" style="color:red;"></i></a>                                              <a class="btn btn-primary" href="">Apply Now</a>
+                                          </div>
+                                          <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="job-item p-4 mb-4">
+                                  <div class="row g-4">
+                                      <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                          <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-5.jpg" alt="" style="width: 80px; height: 80px;">
+                                          <div class="text-start ps-4">
+                                              <h5 class="mb-3">Wordpress Developer</h5>
+                                              <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
+                                              <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>Full Time</span>
+                                              <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                          </div>
+                                      </div>
+                                      <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                          <div class="d-flex mb-3"><a class="btn btn-light btn-square me-3" href=""><i class="bi bi-heart-fill" style="color:red;"></i></a>                                              <a class="btn btn-primary" href="">Apply Now</a>
+                                          </div>
+                                          <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
+                                      </div>
+                                  </div>
+                              </div>
+                              <a class="btn btn-primary py-3 px-5" href="/accounts/login/">Browse More Jobs</a>
+                          </div>
+                          <div id="tab-2" class="tab-pane fade show p-0">
+                              <div class="job-item p-4 mb-4">
+                                  <div class="row g-4">
+                                      <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                          <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-1.jpg" alt="" style="width: 80px; height: 80px;">
+                                          <div class="text-start ps-4">
+                                              <h5 class="mb-3">Software Engineer</h5>
+                                              <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
+                                              <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>Full Time</span>
+                                              <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                          </div>
+                                      </div>
+                                      <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                          <div class="d-flex mb-3"><a class="btn btn-light btn-square me-3" href=""><i class="bi bi-heart-fill" style="color:red;"></i></a>                                              <a class="btn btn-primary" href="">Apply Now</a>
+                                          </div>
+                                          <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="job-item p-4 mb-4">
+                                  <div class="row g-4">
+                                      <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                          <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-2.jpg" alt="" style="width: 80px; height: 80px;">
+                                          <div class="text-start ps-4">
+                                              <h5 class="mb-3">Marketing Manager</h5>
+                                              <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
+                                              <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>Full Time</span>
+                                              <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                          </div>
+                                      </div>
+                                      <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                          <div class="d-flex mb-3"><a class="btn btn-light btn-square me-3" href=""><i class="bi bi-heart-fill" style="color:red;"></i></a>                                              <a class="btn btn-primary" href="">Apply Now</a>
+                                          </div>
+                                          <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="job-item p-4 mb-4">
+                                  <div class="row g-4">
+                                      <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                          <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-3.jpg" alt="" style="width: 80px; height: 80px;">
+                                          <div class="text-start ps-4">
+                                              <h5 class="mb-3">Product Designer</h5>
+                                              <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
+                                              <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>Full Time</span>
+                                              <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                          </div>
+                                      </div>
+                                      <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                          <div class="d-flex mb-3"><a class="btn btn-light btn-square me-3" href=""><i class="bi bi-heart-fill" style="color:red;"></i></a>                                              <a class="btn btn-primary" href="">Apply Now</a>
+                                          </div>
+                                          <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="job-item p-4 mb-4">
+                                  <div class="row g-4">
+                                      <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                          <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-4.jpg" alt="" style="width: 80px; height: 80px;">
+                                          <div class="text-start ps-4">
+                                              <h5 class="mb-3">Creative Director</h5>
+                                              <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
+                                              <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>Full Time</span>
+                                              <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                          </div>
+                                      </div>
+                                      <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                          <div class="d-flex mb-3"><a class="btn btn-light btn-square me-3" href=""><i class="bi bi-heart-fill" style="color:red;"></i></a>                                              <a class="btn btn-primary" href="">Apply Now</a>
+                                          </div>
+                                          <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="job-item p-4 mb-4">
+                                  <div class="row g-4">
+                                      <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                          <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-5.jpg" alt="" style="width: 80px; height: 80px;">
+                                          <div class="text-start ps-4">
+                                              <h5 class="mb-3">Wordpress Developer</h5>
+                                              <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
+                                              <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>Full Time</span>
+                                              <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                          </div>
+                                      </div>
+                                      <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                          <div class="d-flex mb-3"><a class="btn btn-light btn-square me-3" href=""><i class="bi bi-heart-fill" style="color:red;"></i></a>                                              <a class="btn btn-primary" href="">Apply Now</a>
+                                          </div>
+                                          <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
+                                      </div>
+                                  </div>
+                              </div>
+                              <a class="btn btn-primary py-3 px-5" href="">Browse More Jobs</a>
+                          </div>
+                          <div id="tab-3" class="tab-pane fade show p-0">
+                              <div class="job-item p-4 mb-4">
+                                  <div class="row g-4">
+                                      <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                          <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-1.jpg" alt="" style="width: 80px; height: 80px;">
+                                          <div class="text-start ps-4">
+                                              <h5 class="mb-3">Software Engineer</h5>
+                                              <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
+                                              <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>Full Time</span>
+                                              <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                          </div>
+                                      </div>
+                                      <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                          <div class="d-flex mb-3"><a class="btn btn-light btn-square me-3" href=""><i class="bi bi-heart-fill" style="color:red;"></i></a>                                              <a class="btn btn-primary" href="">Apply Now</a>
+                                          </div>
+                                          <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="job-item p-4 mb-4">
+                                  <div class="row g-4">
+                                      <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                          <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-2.jpg" alt="" style="width: 80px; height: 80px;">
+                                          <div class="text-start ps-4">
+                                              <h5 class="mb-3">Marketing Manager</h5>
+                                              <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
+                                              <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>Full Time</span>
+                                              <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                          </div>
+                                      </div>
+                                      <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                          <div class="d-flex mb-3"><a class="btn btn-light btn-square me-3" href=""><i class="bi bi-heart-fill" style="color:red;"></i></a>                                              <a class="btn btn-primary" href="">Apply Now</a>
+                                          </div>
+                                          <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="job-item p-4 mb-4">
+                                  <div class="row g-4">
+                                      <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                          <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-3.jpg" alt="" style="width: 80px; height: 80px;">
+                                          <div class="text-start ps-4">
+                                              <h5 class="mb-3">Product Designer</h5>
+                                              <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
+                                              <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>Full Time</span>
+                                              <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                          </div>
+                                      </div>
+                                      <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                          <div class="d-flex mb-3"><a class="btn btn-light btn-square me-3" href=""><i class="bi bi-heart-fill" style="color:red;"></i></a>                                              <a class="btn btn-primary" href="">Apply Now</a>
+                                          </div>
+                                          <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="job-item p-4 mb-4">
+                                  <div class="row g-4">
+                                      <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                          <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-4.jpg" alt="" style="width: 80px; height: 80px;">
+                                          <div class="text-start ps-4">
+                                              <h5 class="mb-3">Creative Director</h5>
+                                              <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
+                                              <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>Full Time</span>
+                                              <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                          </div>
+                                      </div>
+                                      <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                          <div class="d-flex mb-3"><a class="btn btn-light btn-square me-3" href=""><i class="bi bi-heart-fill" style="color:red;"></i></a>                                              <a class="btn btn-primary" href="">Apply Now</a>
+                                          </div>
+                                          <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="job-item p-4 mb-4">
+                                  <div class="row g-4">
+                                      <div class="col-sm-12 col-md-8 d-flex align-items-center">
+                                          <img class="flex-shrink-0 img-fluid border rounded" src="img/com-logo-5.jpg" alt="" style="width: 80px; height: 80px;">
+                                          <div class="text-start ps-4">
+                                              <h5 class="mb-3">Wordpress Developer</h5>
+                                              <span class="text-truncate me-3"><i class="fa fa-map-marker-alt text-primary me-2"></i>New York, USA</span>
+                                              <span class="text-truncate me-3"><i class="far fa-clock text-primary me-2"></i>Full Time</span>
+                                              <span class="text-truncate me-0"><i class="far fa-money-bill-alt text-primary me-2"></i>$123 - $456</span>
+                                          </div>
+                                      </div>
+                                      <div class="col-sm-12 col-md-4 d-flex flex-column align-items-start align-items-md-end justify-content-center">
+                                          <div class="d-flex mb-3"><a class="btn btn-light btn-square me-3" href=""><i class="bi bi-heart-fill" style="color:red;"></i></a>                                              <a class="btn btn-primary" href="">Apply Now</a>
+                                          </div>
+                                          <small class="text-truncate"><i class="far fa-calendar-alt text-primary me-2"></i>Date Line: 01 Jan, 2045</small>
+                                      </div>
+                                  </div>
+                              </div>
+                              <a class="btn btn-primary py-3 px-5" href="">Browse More Jobs</a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          
+        </div>
+</div> {% endcomment %}
+
+
+    <!-- ======= About Us Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>About Us</h2>
+        </div>
+
+        <div class="row content">
+          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="150">
+            <p>
+              Empowering college students to thrive, connect, and excel. Join our vibrant community for high-quality study materials, career opportunities, memorable experiences, and personalized resume building. Discover your potential and redefine college excellence with us.
+            </p>
+            <ul>
+              <li><i class="ri-check-double-line"></i> Easy Learning</li>
+              <li><i class="ri-check-double-line"></i> Worthy Connections</li>
+              <li><i class="ri-check-double-line"></i> Personalized Resume</li>
+              <li><i class="ri-check-double-line"></i> Jobs & Internships</li>
+              <li style="color:red;" ><i class="ri-check-double-line"></i> Accomodation Facilities</li>
+              <li style="color:red;"><i class="ri-check-double-line"></i> Trip Planning</li>
+              <li style="color:red;"><i class="ri-check-double-line"></i> Food Services</li>
+            </ul>
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0" data-aos="fade-up" data-aos-delay="300">
+            <p>Your Gateway to College Excellence. Join our vibrant community of empowered college students as we provide a comprehensive range of services and resources. <br><br>
+              Access high-quality study materials, engage in meaningful discussions, form project teams, and unlock exclusive internships and job opportunities. Experience affordable food facilities, convenient rent options, and budget-friendly trips.<br> <br>With personalized resume building and industry expert guidance, unleash your full potential, discover your passions, and make lifelong connections.
+              <br><br>
+              Thrive during your college years and pave the way for a successful future with Phyed.
+            </p>
+            <a href="/home/about/" class="btn-learn-more">Learn More</a>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Us Section -->
+
+    <!-- ======= Counts Section ======= -->
+    <section id="counts" class="counts">
+      <div class="container">
+
+        <div class="row">
+          <div class="image col-xl-5 d-flex align-items-stretch justify-content-center justify-content-xl-start" data-aos="fade-right" data-aos-delay="150">
+            <img src="{% static 'assets/img/counts-img.svg' %}" alt="" class="img-fluid">
+          </div>
+
+          <div class="col-xl-7 d-flex align-items-stretch pt-4 pt-xl-0" data-aos="fade-left" data-aos-delay="300">
+            <div class="content d-flex flex-column justify-content-center">
+              <div class="row">
+                <div class="col-md-6 d-md-flex align-items-md-stretch">
+                  <div class="count-box">
+                    <i class="bi bi-emoji-smile"></i>
+                    <span data-purecounter-start="0" data-purecounter-end="10000" data-purecounter-duration="1" class="purecounter"></span>
+                    <p><strong>Happy learners</strong> More than 10,000 Happy Users</p>
+                  </div>
+                </div>
+
+                <div class="col-md-6 d-md-flex align-items-md-stretch">
+                  <div class="count-box">
+                    <i class="bi bi-journal-richtext"></i>
+                    <span data-purecounter-start="0" data-purecounter-end="6" data-purecounter-duration="1" class="purecounter"></span>
+                    <p><strong>Courses</strong> Complete Six courses available in most Interactive and Easy way. </p>
+                  </div>
+                </div>
+
+                <div class="col-md-6 d-md-flex align-items-md-stretch">
+                  <div class="count-box">
+                    <i class="bi bi-clock"></i>
+                    <span data-purecounter-start="0" data-purecounter-end="20" data-purecounter-duration="1" class="purecounter"></span>
+                    <p><strong>Members</strong> Combined all experience in the single course. Effective!</p>
+                  </div>
+                </div>
+
+                <div class="col-md-6 d-md-flex align-items-md-stretch">
+                  <div class="count-box">
+                    <i class="bi bi-award"></i>
+                    <span data-purecounter-start="0" data-purecounter-end="100" data-purecounter-duration="1" class="purecounter"></span>
+                    <p><strong>Resume </strong>More than 100 students used Phyed Resume builder.</p>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End .content-->
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End Counts Section -->
+
+
+
+    <!-- ======= More Services Section ======= -->
+    <!-- <section id="more-services" class="more-services">
+      <div class="container">
+
+        <div class="row">
+          <div class="col-md-6 d-flex align-items-stretch">
+            <div class="card" style='background-image: url("assets/img/more-services-1.jpg");' data-aos="fade-up" data-aos-delay="100">
+              <div class="card-body">
+                <h5 class="card-title"><a href="">Lobira Duno</a></h5>
+                <p class="card-text">Lorem ipsum dolor sit amet, consectetur elit, sed do eiusmod tempor ut labore et dolore magna aliqua.</p>
+                <div class="read-more"><a href="#"><i class="bi bi-arrow-right"></i> Read More</a></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
+            <div class="card" style='background-image: url("assets/img/more-services-2.jpg");' data-aos="fade-up" data-aos-delay="200">
+              <div class="card-body">
+                <h5 class="card-title"><a href="">Limere Radses</a></h5>
+                <p class="card-text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem doloremque laudantium, totam rem.</p>
+                <div class="read-more"><a href="#"><i class="bi bi-arrow-right"></i> Read More</a></div>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-md-6 d-flex align-items-stretch mt-4">
+            <div class="card" style='background-image: url("assets/img/more-services-3.jpg");' data-aos="fade-up" data-aos-delay="100">
+              <div class="card-body">
+                <h5 class="card-title"><a href="">Nive Lodo</a></h5>
+                <p class="card-text">Nemo enim ipsam voluptatem quia voluptas sit aut odit aut fugit, sed quia magni dolores.</p>
+                <div class="read-more"><a href="#"><i class="bi bi-arrow-right"></i> Read More</a></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 d-flex align-items-stretch mt-4">
+            <div class="card" style='background-image: url("assets/img/more-services-4.jpg");' data-aos="fade-up" data-aos-delay="200">
+              <div class="card-body">
+                <h5 class="card-title"><a href="">Pale Treda</a></h5>
+                <p class="card-text">Nostrum eum sed et autem dolorum perspiciatis. Magni porro quisquam laudantium voluptatem.</p>
+                <div class="read-more"><a href="#"><i class="bi bi-arrow-right"></i> Read More</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section> -->
+    <!-- ======= Features Section ======= -->
+   <!-- End Features Section -->
+
+    <!-- ======= Testimonials Section ======= -->
+    <section id="testimonials" class="testimonials section-bg">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>Testimonials</h2>
+          <p>What students said about Phyed!</p>
+        </div>
+
+        <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="testimonial-item">
+                  <img src="{% static 'assets/img/male.png' %}" class="testimonial-img" alt="">
+                  <h3> Rajesh S.</h3>
+                  <h4>Ceo &amp; Student</h4>
+                  <p>
+                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                    Phyed's personalized resume building service was a game-changer for me. The one-on-one meeting with an industry expert helped me highlight my unique skills and experiences. Thanks to Phyed, I secured my dream job right out of college!
+                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="testimonial-item">
+                  <img src="{% static 'assets/img/female.png' %}" class="testimonial-img" alt="">
+                  <h3>Sarah R.</h3>
+                  <h4>Student</h4>
+                  <p>
+                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                    Phyed has truly transformed my college experience. From connecting with like-minded peers to accessing high-quality study materials, their platform has been a game-changer. I even landed an amazing internship opportunity through their exclusive job portal. Highly recommended!
+                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="testimonial-item">
+                  <img src="{% static 'assets/img/female.png' %}" class="testimonial-img" alt="">
+                  <h3>Priya K.</h3>
+                  <h4>Student</h4>
+                  <p>
+                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                    I can't thank Phyed enough for their immersive courses. The interactive videos and practical exercises made learning fun and engaging. I've gained valuable skills that have given me a competitive edge in the job market. Phyed is a must-have resource for every college student!
+                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="testimonial-item">
+                  <img src="{% static 'assets/img/male.png' %}" class="testimonial-img" alt="">
+                  <h3>Aman B.</h3>
+                  <h4>Student</h4>
+                  <p>
+                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                    Phyed's community of passionate learners has been a constant source of inspiration and support. Collaborating on projects and participating in thought-provoking discussions has enriched my college journey. Phyed truly fosters a vibrant and inclusive learning environment.
+                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+            <div class="swiper-slide">
+              <div class="testimonial-wrap">
+                <div class="testimonial-item">
+                  <img src="{% static 'assets/img/female.png' %}" class="testimonial-img" alt="">
+                  <h3>Tina M.</h3>
+                  <h4>Student</h4>
+                  <p>
+                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                    Phyed's comprehensive services have made my college life a breeze. From affordable food facilities to convenient rent options, they have taken care of my basic needs. Plus, their meticulously planned trips have allowed me to explore new places and create lifelong memories. Thank you, Phyed!
+                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                  </p>
+                </div>
+              </div>
+            </div><!-- End testimonial item -->
+
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+
+      </div>
+    </section><!-- End Testimonials Section -->
+
+    <!-- ======= Portfolio Section ======= -->
+    <!-- <section id="portfolio" class="portfolio">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>Portfolio</h2>
+          <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem</p>
+        </div>
+
+        <div class="row" data-aos="fade-up" data-aos-delay="200">
+          <div class="col-lg-12 d-flex justify-content-center">
+            <ul id="portfolio-flters">
+              <li data-filter="*" class="filter-active">All</li>
+              <li data-filter=".filter-app">App</li>
+              <li data-filter=".filter-card">Card</li>
+              <li data-filter=".filter-web">Web</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="400">
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>App 1</h4>
+                <p>App</p>
+                <div class="portfolio-links">
+                  <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
+                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Web 3</h4>
+                <p>Web</p>
+                <div class="portfolio-links">
+                  <a href="assets/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
+                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>App 2</h4>
+                <p>App</p>
+                <div class="portfolio-links">
+                  <a href="assets/img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 2"><i class="bx bx-plus"></i></a>
+                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Card 2</h4>
+                <p>Card</p>
+                <div class="portfolio-links">
+                  <a href="assets/img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 2"><i class="bx bx-plus"></i></a>
+                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Web 2</h4>
+                <p>Web</p>
+                <div class="portfolio-links">
+                  <a href="assets/img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 2"><i class="bx bx-plus"></i></a>
+                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>App 3</h4>
+                <p>App</p>
+                <div class="portfolio-links">
+                  <a href="assets/img/portfolio/portfolio-6.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 3"><i class="bx bx-plus"></i></a>
+                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Card 1</h4>
+                <p>Card</p>
+                <div class="portfolio-links">
+                  <a href="assets/img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 1"><i class="bx bx-plus"></i></a>
+                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Card 3</h4>
+                <p>Card</p>
+                <div class="portfolio-links">
+                  <a href="assets/img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 3"><i class="bx bx-plus"></i></a>
+                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+            <div class="portfolio-wrap">
+              <img src="assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
+              <div class="portfolio-info">
+                <h4>Web 3</h4>
+                <p>Web</p>
+                <div class="portfolio-links">
+                  <a href="assets/img/portfolio/portfolio-9.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
+                  <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section> -->
+    <!-- ======= Team Section ======= -->
+    <!-- <section id="team" class="team section-bg">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>Team</h2>
+          <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem</p>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+            <div class="member" data-aos="fade-up" data-aos-delay="100">
+              <div class="member-img">
+                <img src="assets/img/team/team-1.jpg" class="img-fluid" alt="">
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>Walter White</h4>
+                <span>Chief Executive Officer</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+            <div class="member" data-aos="fade-up" data-aos-delay="200">
+              <div class="member-img">
+                <img src="assets/img/team/team-2.jpg" class="img-fluid" alt="">
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>Sarah Jhonson</h4>
+                <span>Product Manager</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+            <div class="member" data-aos="fade-up" data-aos-delay="300">
+              <div class="member-img">
+                <img src="assets/img/team/team-3.jpg" class="img-fluid" alt="">
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>William Anderson</h4>
+                <span>CTO</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+            <div class="member" data-aos="fade-up" data-aos-delay="400">
+              <div class="member-img">
+                <img src="assets/img/team/team-4.jpg" class="img-fluid" alt="">
+                <div class="social">
+                  <a href=""><i class="bi bi-twitter"></i></a>
+                  <a href=""><i class="bi bi-facebook"></i></a>
+                  <a href=""><i class="bi bi-instagram"></i></a>
+                  <a href=""><i class="bi bi-linkedin"></i></a>
+                </div>
+              </div>
+              <div class="member-info">
+                <h4>Amanda Jepson</h4>
+                <span>Accountant</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section> -->
+    <!-- <section id="pricing" class="pricing">
+      <div class="container">
+
+        <div class="section-title">
+          <h2>Pricing</h2>
+          <p>Sit sint consectetur velit nemo qui impedit suscipit alias ea</p>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-4 col-md-6">
+            <div class="box" data-aos="zoom-in-right" data-aos-delay="200">
+              <h3>Free</h3>
+              <h4><sup>$</sup>0<span> / month</span></h4>
+              <ul>
+                <li>Aida dere</li>
+                <li>Nec feugiat nisl</li>
+                <li>Nulla at volutpat dola</li>
+                <li class="na">Pharetra massa</li>
+                <li class="na">Massa ultricies mi</li>
+              </ul>
+              <div class="btn-wrap">
+                <a href="#" class="btn-buy">Buy Now</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mt-4 mt-md-0">
+            <div class="box recommended" data-aos="zoom-in" data-aos-delay="100">
+              <h3>Business</h3>
+              <h4><sup>$</sup>19<span> / month</span></h4>
+              <ul>
+                <li>Aida dere</li>
+                <li>Nec feugiat nisl</li>
+                <li>Nulla at volutpat dola</li>
+                <li>Pharetra massa</li>
+                <li class="na">Massa ultricies mi</li>
+              </ul>
+              <div class="btn-wrap">
+                <a href="#" class="btn-buy">Buy Now</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 mt-4 mt-lg-0">
+            <div class="box" data-aos="zoom-in-left" data-aos-delay="200">
+              <h3>Developer</h3>
+              <h4><sup>$</sup>29<span> / month</span></h4>
+              <ul>
+                <li>Aida dere</li>
+                <li>Nec feugiat nisl</li>
+                <li>Nulla at volutpat dola</li>
+                <li>Pharetra massa</li>
+                <li>Massa ultricies mi</li>
+              </ul>
+              <div class="btn-wrap">
+                <a href="#" class="btn-buy">Buy Now</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section> -->
+
+    <!-- ======= F.A.Q Section ======= -->
+    <section id="faq" class="faq">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>Frequently Asked Questions</h2>
+        </div>
+
+        <div class="row faq-item d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-5">
+            <i class="ri-question-line"></i>
+            <h4>What is Phyed and how does it work?</h4>
+          </div>
+          <div class="col-lg-7">
+            <p>Phyed is a comprehensive platform designed to enhance the college experience for students. It provides a range of services including study materials, career opportunities, community engagement, and more. Simply create an account, explore the various features, and unlock a world of opportunities tailored to your college journey.
+            </p>
+          </div>
+        </div><!-- End F.A.Q Item-->
+
+        <div class="row faq-item d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+          <div class="col-lg-5">
+            <i class="ri-question-line"></i>
+            <h4> Can I access Phyed from any college in India?</h4>
+          </div>
+          <div class="col-lg-7">
+            <p>
+              Absolutely! Phyed is accessible to students from over 150 colleges across India. Our aim is to create a diverse and inclusive community where students from different institutions can connect, collaborate, and learn together.
+            </p>
+          </div>
+        </div><!-- End F.A.Q Item-->
+
+        <div class="row faq-item d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
+          <div class="col-lg-5">
+            <i class="ri-question-line"></i>
+            <h4>How does Phyed support career development?</h4>
+          </div>
+          <div class="col-lg-7">
+            <p>
+              Phyed offers various resources for career development, including personalized resume building, exclusive job and internship opportunities, and connections with industry professionals. We strive to empower students with the skills, experiences, and connections needed to kickstart their professional journeys.
+            </p>
+          </div>
+        </div><!-- End F.A.Q Item-->
+
+        <div class="row faq-item d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
+          <div class="col-lg-5">
+            <i class="ri-question-line"></i>
+            <h4>Are the study materials on Phyed relevant to my college curriculum?</h4>
+          </div>
+          <div class="col-lg-7">
+            <p>Yes, the study materials on Phyed cover a wide range of subjects and are designed to align with various college curricula. Our aim is to provide high-quality resources that supplement your learning and help you excel academically.
+            </p>
+          </div>
+        </div><!-- End F.A.Q Item-->
+
+        <div class="row faq-item d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="500">
+          <div class="col-lg-5">
+            <i class="ri-question-line"></i>
+            <h4> Is Phyed only for academic purposes or can I also explore other interests?</h4>
+          </div>
+          <div class="col-lg-7">
+            <p>
+              Phyed goes beyond academics and offers a holistic approach to college life. Alongside study materials, you can engage in discussions, form project teams, access affordable food and rent facilities, and participate in meticulously planned trips. Phyed aims to provide a comprehensive platform for all aspects of your college experience.
+            </p>
+          </div>
+        </div><!-- End F.A.Q Item-->
+
+      </div>
+    </section><!-- End F.A.Q Section -->
+
+    <!-- ======= Contact Section ======= -->
+    <section id="contact" style="background-color: #e1f0fa;"  class="contact">
+      <div class="container">
+
+        <div class="section-title" data-aos="fade-up">
+          <h2>Contact Us</h2>
+        </div>
+
+        <div class="row">
+
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="contact-about">
+              <h3>Phyed</h3>
+              <p>
+                Stay connected with Phyed on Facebook, Twitter, linkedin and Instagram for the latest updates, valuable resources, and a vibrant community of learners. Join us today and be part of the Phyed movement!
+                </p>
+              <div class="social-links">
+                <a href="https://www.twitter.com" target="_blank" class="twitter"><i class="bi bi-twitter"></i></a>
+                <a href="https://www.facebook.com/phyed.in" target="_blank" class="facebook"><i class="bi bi-facebook"></i></a>
+                <a href="https://www.instagram.com/phyed.in/?next=%2F" target="_blank" class="instagram"><i class="bi bi-instagram"></i></a>
+                <a href="https://www.linkedin.com/company/phyed/" target="_blank" class="linkedin"><i class="bi bi-linkedin"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-md-6 mt-4 mt-md-0" data-aos="fade-up" data-aos-delay="200">
+            <div class="info">
+              <div>
+                <i class="ri-map-pin-line"></i>
+                <p>Indiranagar, Bangalore<br>India, IN 560038</p>
+              </div>
+
+              <div>
+                <i class="ri-mail-send-line"></i>
+                <p>phyed@gmail.com</p>
+              </div>
+
+              <div>
+                <i class="ri-phone-line"></i>
+                <p>+91 821 0823 753</p>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="col-lg-5 col-md-12" data-aos="fade-up" data-aos-delay="300">
+            <form action="https://script.google.com/macros/s/AKfycbyXYNwj5QZ8jw_Ujss5I9f6Q2wCK0ExsGTeeFyy5s-9cWVLwtgGsh1WhNXi7q1zlyDihw/exec" method="post" role="form" class="php-email-form">
+              {% csrf_token %}
+              <div class="form-group">
+                <input type="text" name="name" class="form-control" id="name" value="{{request.user}}" required>
+              </div>
+              <div class="form-group">
+                <input type="email" class="form-control" name="email" id="email" value="{{request.user.email}}" required>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+              </div>
+              <div class="my-3">
+                <div class="loading">Loading</div>
+                <div class="error-message"></div>
+                <div class="sent-message">Your message has been sent. Thank you!</div>
+              </div>
+              <div class="text-center"><button type="submit"><a href="/accounts/login/" style="color:white;"> Send Message</a></button></div>
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section><!-- End Contact Section -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="row d-flex align-items-center">
+        <div class="col-lg-6 text-lg-left text-center">
+          <div id="copyright" align="center">&copy; 2022 - 2023 phyed.in</div>
+<script>
+(function(){
+	let cpr = document.getElementById("copyright");
+	cpr.innerHTML = "&copy; 2022 - "+new Date().getFullYear()+" phyed.in - All Rights Reserved.";
+	cpr.innerHTML += "<br/>Last Updated : "+document.lastModified;
+})();
+</script>
+          
+        </div>
+        <div class="col-lg-6">
+          <nav class="footer-links text-lg-right text-center pt-2 pt-lg-0">
+            <a href="#intro" class="scrollto">Home</a>
+            <a href="#about" class="scrollto">About</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Use</a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="{% static 'assets/vendor/purecounter/purecounter_vanilla.js' %}"></script>
+  <script src="{% static 'assets/vendor/aos/aos.js' %}"></script>
+  <script src="{% static 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/glightbox/js/glightbox.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/isotope-layout/isotope.pkgd.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/swiper/swiper-bundle.min.js' %}"></script>
+  <script src="{% static 'assets/vendor/php-email-form/validate.js' %}"></script>
+
+  <!--Main JS File -->
+  <script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+<!-- Swiper JS -->
+<script src='{% static 'jobs/js/swiper-bundle.min.js' %}'></script>
+
+<!-- JavaScript -->
+<script src='{% static 'jobs/js/script.js' %}'></script>
+</html>

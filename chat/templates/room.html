@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    .glow-on-hover {
+    width: 150px;
+    height: 55px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #ffffff;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+}
+
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.glow-on-hover:active {
+    color: #fffefe
+}
+
+.glow-on-hover:active:after {
+    background: transparent;
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgb(0, 0, 0);
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+  </style>
+  <style>
+    body {
+      margin: 0 auto;
+      max-width: 800px;
+      padding: 0 20px;
+      background: linear-gradient(to bottom, #9ad2ff, #9eadfa);
+      overflow-y: hidden;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    #display {
+      height: 70vh;
+      overflow: auto;
+      background-color: rgb(0, 0, 0);
+      overflow-x: hidden;
+      background-image: url('{% static 'assets/img/wp2.jpeg' %}');
+      z-index: -1;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+    ::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-image: url('{% static 'assets/img/wp2.jpeg' %}');
+}
+
+::-webkit-scrollbar-thumb {
+  background-image: url('{% static 'assets/img/chat_bg.png' %}');
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-image: url('{% static 'assets/img/wp1.jpeg' %}');
+}
+
+    /* .container {
+  border: 2px solid #dedede;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  margin: 10px 0;
+  bottom: 200px;
+  position: relative;
+} */
+
+    .darker {
+      border-color: inherit;
+      /* background-color: #accffe; */
+      margin-bottom: 10px;
+      /* padding-top: -20px; */
+      margin-top: 10px;
+    }
+
+    .darker p {
+      font-size: large;
+      margin-top: 5px;
+      display:inline-block;
+      color: rgb(255, 255, 255);
+      /* background-color: #e0efffe9; */
+      /* background: linear-gradient(to bottom, #ff9a9e, #fecfef); */
+      background-color: #60A5FA;
+     font-weight: 530;
+      padding: 7px 30px 7px 10px;
+      border-radius: 2px 10px 10px 10px;
+      margin-left: -20px;
+      white-space: pre-wrap;
+      word-break: break-word;
+      
+    }
+
+    .user_name {
+      color: white;
+      /* float: right; */
+    }
+
+    .container::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+
+    .container img {
+      float: left;
+      max-width: 60px;
+      width: 100%;
+      margin-right: 20px;
+      border-radius: 50%;
+    }
+
+    .container img.right {
+      float: right;
+      margin-left: 20px;
+      margin-right: 0;
+    }
+
+    .time-right {
+      float: right;
+      color: #aaa;
+    }
+
+    .time-left {
+      float: left;
+      color: #999;
+    }
+
+    .name {
+      background-color: #f2f2f2;
+    }
+    .container.right p{
+  float: right;
+  clear: both;
+  margin-top: -30px;
+  /* background-color: #075e54; */
+  /* background: linear-gradient(to bottom, #667eea, #764ba2); */
+  background-color: #7760fa6c;
+  font-weight: 530;
+  color: white;
+  border-radius: 10px 10px 2px 10px;
+}
+
+    /* #post-form{
+  bottom: 0;
+  position: fixed;
+} */
+  </style>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+    integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <button style="float:right;  font-size: large; color:rgb(255, 255, 255); padding:17px; border-radius:8px;" id="invite-button" class="glow-on-hover">Invite Others</button>
+  <script>
+    document.getElementById("invite-button").addEventListener("click", function() {
+        // Get the current URL dynamically
+        var currentURL = window.location.href;
+
+        // Create a temporary input element
+        var tempInput = document.createElement("input");
+        tempInput.style.position = "absolute";
+        tempInput.style.left = "-1000px";
+        tempInput.value = currentURL;
+
+        // Append the temporary input element to the body
+        document.body.appendChild(tempInput);
+
+        // Copy the current URL to the clipboard
+        tempInput.select();
+        document.execCommand("copy");
+
+        // Remove the temporary input element
+        document.body.removeChild(tempInput);
+
+        // Provide feedback or perform any other desired action
+        alert("Current URL copied to clipboard!");
+    });
+</script>
+
+
+
+
+
+  <h1 class="d-flex" style="text-align: center; color: #9ad2ff; background-color: whitesmoke; border-radius: 10px; padding: 10px 0;">Phyed</h1>
+
+  <div id="display">
+
+    <!-- <div class="container darker">
+  <b>Tom</b><p>Hello Everyone, How Are You Guys Doing?</p>
+  <span class="time-left">20th, April 2021</span>
+</div> -->
+
+{% for message in received_messages %}
+<div class="container darker">
+  <b>{{ message.user }}</b>
+  <p class="message-content">{{ message.value|linebreaksbr }}</p>
+  <span class="time-left">{{ message.timestamp }}</span>
+</div>
+{% endfor %}
+
+    <div class="container profile">
+
+    </div>
+
+  </div>
+
+  <script>
+    $(document).ready(function () {
+
+      setInterval(function () {
+        $.ajax({
+          type: 'GET',
+          url: "/chat/getMessages/{{room}}/",
+          success: function (response) {
+            console.log(response);
+            $("#display").empty();
+            // for (var key in response.messages)
+            // {
+            //   var temp = "<span class='img_user'></span>"+"<span class='user_name'>"+response.messages[key].user+":"+"</span>"+"<span>:</span>"+"<div class='container darker'><b class='name'>"  + "</b><p>" + response.messages[key].value + "</p><span class='time-left'>"  + "</span></div>";
+            //     $("#display").append(temp);
+            // }
+            for (var key in response.messages) {
+              var message = response.messages[key];
+              var temp;
+
+              if (message.user === "{{username}}") {
+                // User's message
+                temp = "<span class='img_user'></span>" +
+                  // "<span class='user_name'>" + message.user + ":" + "</span>" +
+                  "<span>:</span>" +
+                  "<div class='container darker right'>" +
+                  "<b class='name'></b><p>" + message.value + "</p><span class='time-left'></span></div>";
+              } else {
+                // Other users' messages
+                temp = "<span class='img_user'></span>" +
+                  "<span class='user_name'>" + message.user + ":" + "</span>" +
+                  "<span>:</span>" +
+                  "<div class='container darker'>" +
+                  "<b class='name'></b><p>" + message.value + "</p><span class='time-left'></span></div>";
+              }
+              if(message.value!=''){
+                $("#display").append(temp);
+              }
+            }
+          },
+          error: function (response) {
+            alert('An error occured')
+          }
+        });
+      }, 1000);
+    })
+  </script>
+
+
+  <div class="container">
+    <style>
+      input[type=text],
+      select {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
+
+      input[type=submit] {
+        width: 100%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      input[type=submit]:hover {
+        background-color: #45a049;
+      }
+
+      div {
+        border-radius: 5px;
+        background-color: transparent;
+        padding: 0 20px;
+      }
+    </style>
+
+    <form id="post-form">
+      {% csrf_token %}
+      <input type="hidden" name="username" id="username" value="{{username}}" />
+      <input type="hidden" name="room_id" id="room_id" value="{{room_details.id}}" />
+
+      <input  size="20" type="text" name="message" placeholder="Type here..." id="message" width="100px" />
+      <input style="background-color: #0080ff;" type="submit" value="Send">
+
+    </form>
+  </div>
+
+  <style>
+    #message{
+      white-space: pre-wrap; /* or use "word-wrap: break-word;" */
+    word-break: break-word;
+    }
+    /* .tt{
+    background-color: #4CAF50;
+    display: inline;
+    padding: 20px;
+  } */
+  </style>
+
+</body>
+
+<script type="text/javascript">
+  $(document).on('submit', '#post-form', function (e) {
+
+    e.preventDefault();
+    $("#display").scrollTop($("#display")[0].scrollHeight);
+
+    $.ajax({
+      type: 'POST',
+      url: '/chat/send',
+      data: {
+        username: $('#username').val(),
+        room_id: $('#room_id').val(),
+        message: $('#message').val(),
+        csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+      },
+      success: function (data) {
+        //alert(data)
+      }
+    });
+    document.getElementById('message').value = ''
+  });
+</script>
+
+</html>

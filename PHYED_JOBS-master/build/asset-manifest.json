@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/static/css/main.b48c0eed.css",
+    "main.js": "/static/js/main.c889056a.js",
+    "static/media/sophos.png": "/static/media/sophos.ac2a23bd77b0dbc83a81.png",
+    "static/media/sas.png": "/static/media/sas.fef52fc7d7a1180f9fe5.png",
+    "static/media/sailor.png": "/static/media/sailor.1c7e80520fa93ce9fb0a.png",
+    "static/media/yahoo.png": "/static/media/yahoo.2df4ba80dd0a8d29dbd9.png",
+    "static/media/youtube.png": "/static/media/youtube.6c30f65ba81870fcf1ea.png",
+    "static/media/philips.png": "/static/media/philips.09ab2bade7a506264603.png",
+    "static/media/jabil.png": "/static/media/jabil.86cbd33bd64331fe8f32.png",
+    "static/media/phyed.png": "/static/media/phyed.a31e9f29b701a844cfb5.png",
+    "index.html": "/index.html",
+    "main.b48c0eed.css.map": "/static/css/main.b48c0eed.css.map",
+    "main.c889056a.js.map": "/static/js/main.c889056a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b48c0eed.css",
+    "static/js/main.c889056a.js"
+  ]
+}
